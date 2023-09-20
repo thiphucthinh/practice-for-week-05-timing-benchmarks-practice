@@ -1,29 +1,57 @@
-const [addNums, addManyNums] = require("./phase-1");
+const [addNums, addManyNums] = require("./phase-1.js");
 
 function addNums10Timing(increment) {
-  // Copy your `addNums10` code here
-  // Then, add timing code
 
-  // Your code here
+  let arr = [];
+  let n = increment;
+;
+  for (let i = 0; i < 10; i++) {
+    console.time()
+    arr.push(addNums(n));
+    n += increment;
+    console.timeLog();
+  }
+  console.timeEnd();
+  return arr;
 
 }
+
+// Timing
+startTime = Date.now();
+addNums10Timing(900);
+endTime = Date.now();
+console.log(`${endTime - startTime}`);
 
 
 function addManyNums10Timing(increment) {
-// Copy your `addManyNums10` code here
-// Then, add timing code
 
-  // Your code here
+  let arr = [];
+  let n = increment;
+
+  for (let i = 0; i < 10; i++) {
+    console.time()
+    arr.push(addManyNums(n));
+    n += increment;
+    console.timeLog();
+  }
+  console.timeEnd();
+  return arr;
 
 }
 
+// Timing
+startTime = Date.now();
+addManyNums10Timing(900);
+endTime = Date.now();
+console.log(`${endTime - startTime}`);
 
-n = 1000000
-console.log(`addNums(${n}): `);
-addNums10Timing(1000000);
+/****************************************** */
+// n = 1000000
+// console.log(`addNums(${n}): `);
+// addNums10Timing(1000000);
 
-console.log("\n***********\n");
+// console.log("\n***********\n");
 
-n = 1000
-console.log(`addManyNums(${n}): `);
-addManyNums10Timing(5000);
+// n = 1000
+// console.log(`addManyNums(${n}): `);
+// addManyNums10Timing(5000);
